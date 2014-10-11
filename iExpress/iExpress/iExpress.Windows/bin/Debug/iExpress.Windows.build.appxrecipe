@@ -7,68 +7,68 @@
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>48964dkrew0213.iExpress</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpress.Windows.exe">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpress.Windows.exe">
       <PackagePath>iExpress.Windows.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\packages\Parse.1.3.0\lib\netcore45\Parse.dll">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\packages\Parse.1.3.0\lib\netcore45\Parse.dll">
       <PackagePath>Parse.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\packages\Parse.1.3.0\lib\netcore45\Parse.WinRT.dll">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\packages\Parse.1.3.0\lib\netcore45\Parse.WinRT.dll">
       <PackagePath>Parse.WinRT.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\1.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\1.png">
       <PackagePath>Assets\1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\2.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\2.png">
       <PackagePath>Assets\2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\3.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\3.png">
       <PackagePath>Assets\3.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\4.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\4.png">
       <PackagePath>Assets\4.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\5.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\5.png">
       <PackagePath>Assets\5.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\Sent.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\Sent.png">
       <PackagePath>Assets\Sent.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpress.Windows.xr.xml">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpress.Windows.xr.xml">
       <PackagePath>iExpress.Windows.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpress2\WorkSpace\iExpress\iExpress\iExpress.Windows\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
