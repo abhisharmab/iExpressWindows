@@ -71,11 +71,6 @@ namespace iExpress
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
-            if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("UserName"))
-                UserName = (String)ApplicationData.Current.RoamingSettings.Values["UserName"];
-            else
-                UserName = "Patient";
-
         }
 
         /// <summary>
@@ -180,6 +175,12 @@ namespace iExpress
 
                 if (counter == 1)
                 {
+
+                    if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("UserName"))
+                        UserName = (String)ApplicationData.Current.RoamingSettings.Values["UserName"];
+                    else
+                        UserName = "Patient";
+
                     Debug.WriteLine("Trigger execution!!!!!!!!");
                     (sender as Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
                     Button but = (sender as Button);
