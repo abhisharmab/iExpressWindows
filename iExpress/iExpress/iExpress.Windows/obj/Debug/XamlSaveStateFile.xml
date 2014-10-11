@@ -1,0 +1,7 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <LocalAssembly PathName="c:\users\abhishek\source\repos\iexpress2\workspace\helloworld\helloworld\helloworld.windows\obj\debug\intermediatexaml\helloworld.windows.exe" HashGuid="ac052e7d-5a0f-6acc-670b-0aa1237bcfe6" />
+    <ReferenceAssembly PathName="c:\users\abhishek\source\repos\iexpresswindows\iexpress\packages\parse.1.3.0\lib\netcore45\parse.dll" HashGuid="fc340d69-26d7-b787-9749-e10724ae0b89" />
+    <ReferenceAssembly PathName="c:\users\abhishek\source\repos\iexpresswindows\iexpress\packages\parse.1.3.0\lib\netcore45\parse.winrt.dll" HashGuid="686a4480-5b84-291b-04f2-3ed7db81ad6f" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>
