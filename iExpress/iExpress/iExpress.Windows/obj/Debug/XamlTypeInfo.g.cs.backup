@@ -125,30 +125,30 @@ namespace iExpress.iExpress_Windows_XamlTypeInfo
         private void InitTypeTables()
         {
             _typeNameTable = new string[11];
-            _typeNameTable[0] = "iExpress.iExpressCustomSettings";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.SettingsFlyout";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.ContentControl";
-            _typeNameTable[3] = "iExpress.MainPage";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[6] = "iExpress.Common.ObservableDictionary";
-            _typeNameTable[7] = "Object";
-            _typeNameTable[8] = "String";
-            _typeNameTable[9] = "iExpress.Common.NavigationHelper";
-            _typeNameTable[10] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[0] = "iExpress.MainPage";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "iExpress.Common.ObservableDictionary";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "String";
+            _typeNameTable[6] = "iExpress.Common.NavigationHelper";
+            _typeNameTable[7] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[8] = "iExpress.iExpressCustomSettings";
+            _typeNameTable[9] = "Windows.UI.Xaml.Controls.SettingsFlyout";
+            _typeNameTable[10] = "Windows.UI.Xaml.Controls.ContentControl";
 
             _typeTable = new global::System.Type[11];
-            _typeTable[0] = typeof(global::iExpress.iExpressCustomSettings);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.SettingsFlyout);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
-            _typeTable[3] = typeof(global::iExpress.MainPage);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[6] = typeof(global::iExpress.Common.ObservableDictionary);
-            _typeTable[7] = typeof(global::System.Object);
-            _typeTable[8] = typeof(global::System.String);
-            _typeTable[9] = typeof(global::iExpress.Common.NavigationHelper);
-            _typeTable[10] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[0] = typeof(global::iExpress.MainPage);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::iExpress.Common.ObservableDictionary);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::System.String);
+            _typeTable[6] = typeof(global::iExpress.Common.NavigationHelper);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[8] = typeof(global::iExpress.iExpressCustomSettings);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.SettingsFlyout);
+            _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.ContentControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -183,10 +183,10 @@ namespace iExpress.iExpress_Windows_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_iExpressCustomSettings() { return new global::iExpress.iExpressCustomSettings(); }
-        private object Activate_3_MainPage() { return new global::iExpress.MainPage(); }
-        private object Activate_6_ObservableDictionary() { return new global::iExpress.Common.ObservableDictionary(); }
-        private void MapAdd_6_ObservableDictionary(object instance, object key, object item)
+        private object Activate_0_MainPage() { return new global::iExpress.MainPage(); }
+        private object Activate_3_ObservableDictionary() { return new global::iExpress.Common.ObservableDictionary(); }
+        private object Activate_8_iExpressCustomSettings() { return new global::iExpress.iExpressCustomSettings(); }
+        private void MapAdd_3_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -204,62 +204,62 @@ namespace iExpress.iExpress_Windows_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  iExpress.iExpressCustomSettings
-                userType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
-                userType.Activator = Activate_0_iExpressCustomSettings;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 1:   //  Windows.UI.Xaml.Controls.SettingsFlyout
-                xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 2:   //  Windows.UI.Xaml.Controls.ContentControl
-                xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 3:   //  iExpress.MainPage
+            case 0:   //  iExpress.MainPage
                 userType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
+                userType.Activator = Activate_0_MainPage;
                 userType.AddMemberName("DefaultViewModel");
                 userType.AddMemberName("NavigationHelper");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.Page
+            case 1:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Windows.UI.Xaml.Controls.UserControl
+            case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  iExpress.Common.ObservableDictionary
+            case 3:   //  iExpress.Common.ObservableDictionary
                 userType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_6_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_3_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Object
+            case 4:   //  Object
                 xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  String
+            case 5:   //  String
                 xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  iExpress.Common.NavigationHelper
+            case 6:   //  iExpress.Common.NavigationHelper
                 userType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  Windows.UI.Xaml.DependencyObject
+            case 7:   //  Windows.UI.Xaml.DependencyObject
+                xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  iExpress.iExpressCustomSettings
+                userType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.SettingsFlyout"));
+                userType.Activator = Activate_8_iExpressCustomSettings;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  Windows.UI.Xaml.Controls.SettingsFlyout
+                xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  Windows.UI.Xaml.Controls.ContentControl
                 xamlType = new global::iExpress.iExpress_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }

@@ -49,7 +49,7 @@
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="9.932,0,313,4" Grid.ColumnSpan="2" Grid.Column="1" Height="54"/>
         </Grid>
         <StackPanel Margin="10,0.074,10,9.926" RenderTransformOrigin="0.5,0.5" Grid.Row="2">
-            <Button x:ConnectionId='1' x:Name="b1" Content="Emergency - Need Help" Width="300" Height="221"                                                                                       />
+            <Button x:ConnectionId='1' x:Name="b1" Content="Emergency - NEED HELP NOW" Width="300" Height="221"                                                                                       />
             <Button x:ConnectionId='2' x:Name="b3" Content="Want to go to the Bathroom"  Width="300" Height="221"                                                                                      />
             <Button x:ConnectionId='3' x:Name="b2" Content="I am hungry"  Width="300" Height="221"                                                                                      />
 

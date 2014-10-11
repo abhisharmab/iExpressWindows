@@ -11,25 +11,38 @@
     d:DesignWidth="391">
 
     <!-- This StackPanel acts as a root panel for vertical layout of the content sections -->
-    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="575" Width="253" >
 
         <!-- The StackPanel(s) below define individual content sections -->
 
-        <!-- Content Section 1-->
+        <!-- TextBox -->
         <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
-
-            <!-- Section 1 header -->
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Lorem ipsum" />
-
-            <!-- Section 1 body -->
-            <TextBlock Style="{StaticResource BodyTextBlockStyle}" Margin="0,0,0,25" TextWrapping="Wrap">
-                <TextBlock.Text>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </TextBlock.Text>
-            </TextBlock>
-
+            <TextBlock Margin="0,0,0,25" Text="Enter Patient's Name" Style="{StaticResource TitleTextBlockStyle}"/>
+            <StackPanel Margin="0,7,0,0" Orientation="Horizontal">
+                <TextBox x:Name="Username" HorizontalAlignment="Left" Width="150"/>
+                <Button x:ConnectionId='5' x:Name="Add" Margin="20,0,0,0" Content="Set"                  />
+            </StackPanel>
         </StackPanel>
+
+
+        <!-- RadioButton -->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+            <TextBlock Text="Countdown begins from:" Style="{StaticResource TitleTextBlockStyle}"/>
+            <RadioButton x:ConnectionId='1' x:Name="Five" GroupName="CountDown" Margin="0,7,0,0" Content="5" FontWeight="Bold"                       />
+            <RadioButton x:ConnectionId='2' x:Name="Four" GroupName="CountDown" Margin="0,17,0,0" Content="4" FontWeight="Bold"                       />
+            <RadioButton x:ConnectionId='3' x:Name="Three" GroupName="CountDown" Margin="0,17,0,0" Content="3" FontWeight="Bold"                        />
+            <RadioButton x:ConnectionId='4' x:Name="Two" GroupName="CountDown" Margin="0,17,0,0" Content="2" FontWeight="Bold"                      />
+        </StackPanel>
+
+
+        <!-- Toggle switch -->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+            <TextBlock Text="Toggle Switch" Style="{StaticResource TitleTextBlockStyle}"/>
+            <ToggleSwitch Margin="-6,0,0,0" Header = "Download updates automatically" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+            <ToggleSwitch Margin="-6,0,0,0" Header = "Install updates automatically" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+
+
 
         <!-- Define more Content Sections below as necessary -->
 

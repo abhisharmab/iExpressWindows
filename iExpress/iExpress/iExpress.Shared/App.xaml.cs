@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.ApplicationSettings;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
@@ -30,6 +31,9 @@ namespace iExpress
 #if WINDOWS_PHONE_APP
         private TransitionCollection transitions;
 #endif
+
+
+        public int countDownCounter = 5;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -46,6 +50,24 @@ namespace iExpress
             ParseClient.Initialize("GwYPxahcJTgeDwigA7qQLev7zJuGsSN2idpqPZhu", "zKTrXbRjqptsgKMDdaPh2lCdnwiUT9rcVKYQ1pKI");
         }
 
+        protected override void OnWindowCreated(WindowCreatedEventArgs args)
+        {
+            SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+        }
+
+
+        private void OnCommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+
+            args.Request.ApplicationCommands.Add(new SettingsCommand(
+                "iExpress Custome Settings", "iExpress Custom Settings", (handler) => ShowCustomSettingFlyout()));
+        }
+
+        public void ShowCustomSettingFlyout()
+        {
+            iExpressCustomSettings iExpressSetting = new iExpressCustomSettings();
+            iExpressSetting.Show();
+        }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used when the application is launched to open a specific file, to display

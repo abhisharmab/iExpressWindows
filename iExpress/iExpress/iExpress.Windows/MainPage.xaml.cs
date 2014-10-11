@@ -2,6 +2,8 @@
 using Parse;
 using iExpress.Common;
 using System;
+using Windows.Storage;
+using Windows.UI.ApplicationSettings;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,6 +43,7 @@ namespace iExpress
         private int counter;
         private int internal_counter = 36;
         private int running_counter;
+        private String UserName;
 
 
         /// <summary>
@@ -67,6 +70,12 @@ namespace iExpress
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+
+            if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("UserName"))
+                UserName = (String)ApplicationData.Current.RoamingSettings.Values["UserName"];
+            else
+                UserName = "Patient";
+
         }
 
         /// <summary>
@@ -119,15 +128,31 @@ namespace iExpress
 
         #endregion
 
+
+
+
         private void mouseEntered(object sender, PointerRoutedEventArgs e)
         {
-
+            
             Debug.WriteLine(sender.GetHashCode() + "Detected the entering of the button");
             entered = true;
             exited = false;
-            counter = 6;
+            //counter = 6;
+            //Abhi - Testing if CountDown Testing Works 
+            if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("CountDown"))
+            {
+                counter = (int)ApplicationData.Current.RoamingSettings.Values["CountDown"];
+                counter++;
+            }
+            else
+            {
+                counter = 6;
+            }
+
             running_counter = 0;
         }
+
+
 
         private void mouseExited(object sender, PointerRoutedEventArgs e)
         {
@@ -158,7 +183,7 @@ namespace iExpress
                     Debug.WriteLine("Trigger execution!!!!!!!!");
                     (sender as Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
                     Button but = (sender as Button);
-                    String message = "Neil:"+but.Content.ToString();
+                    String message = UserName +":"+but.Content.ToString();
 
                     ParsePush push = new ParsePush();
                     push.Channels = new List<String> { "global" };
@@ -171,7 +196,7 @@ namespace iExpress
 
                     ParseObject internal_tweets = new ParseObject("TweetsInternal");
                     internal_tweets["content"] = message;
-                    internal_tweets["sender"] = "Neil";
+                    internal_tweets["sender"] = UserName;
                     internal_tweets.SaveAsync();
 
 
