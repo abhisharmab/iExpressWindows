@@ -43,9 +43,6 @@ namespace iExpress
         private int running_counter;
 
 
-
-
-
         /// <summary>
         /// This can be changed to a strongly typed view model.
         /// </summary>
@@ -163,16 +160,6 @@ namespace iExpress
                     Button but = (sender as Button);
                     String message = "Neil -- "+but.Content.ToString();
 
-                    //var push = new ParsePush();
-                    //push.Channels = new List<string> { "Giants" };
-                    //push.Alert = "The Giants just scored!";
-                    //await push.SendAsync();
-
-
-
-                    //Short version sending
-                    //ParsePush.SendAlertAsync(message, "testing");
-
                     ParsePush push = new ParsePush();
                     push.Channels = new List<String> { "global" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
@@ -194,7 +181,7 @@ namespace iExpress
 
                 }
             }
-            //Debug.WriteLine(sender.GetHashCode() + "     Still in the button   " + running_counter); 
+
         }
 
         
