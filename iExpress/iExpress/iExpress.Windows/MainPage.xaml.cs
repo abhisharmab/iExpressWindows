@@ -158,7 +158,7 @@ namespace iExpress
                     Debug.WriteLine("Trigger execution!!!!!!!!");
                     (sender as Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
                     Button but = (sender as Button);
-                    String message = "Neil -- "+but.Content.ToString();
+                    String message = "Neil:"+but.Content.ToString();
 
                     ParsePush push = new ParsePush();
                     push.Channels = new List<String> { "global" };
