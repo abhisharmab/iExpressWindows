@@ -62,6 +62,9 @@
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpressCustomSettings.xbf">
+      <PackagePath>iExpressCustomSettings.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>

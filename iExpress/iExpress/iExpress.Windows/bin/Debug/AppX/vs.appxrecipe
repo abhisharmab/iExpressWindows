@@ -20,13 +20,13 @@
     <AppXManifest Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-10-11T00:15:27.984</Modified>
+      <Modified>2014-10-11T01:05:35.412</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpress.Windows.exe">
       <PackagePath>iExpress.Windows.exe</PackagePath>
-      <Modified>2014-10-11T00:36:18.695</Modified>
+      <Modified>2014-10-11T01:05:35.055</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\packages\Parse.1.3.0\lib\netcore45\Parse.dll">
       <PackagePath>Parse.dll</PackagePath>
@@ -84,17 +84,21 @@
       <PackagePath>App.xbf</PackagePath>
       <Modified>2014-10-11T00:03:59.560</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpressCustomSettings.xbf">
+      <PackagePath>iExpressCustomSettings.xbf</PackagePath>
+      <Modified>2014-10-11T01:05:34.822</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
       <Modified>2014-10-11T00:36:18.467</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpress.Windows.xr.xml">
       <PackagePath>iExpress.Windows.xr.xml</PackagePath>
-      <Modified>2014-10-11T00:36:18.401</Modified>
+      <Modified>2014-10-11T01:05:34.752</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-10-11T00:15:27.827</Modified>
+      <Modified>2014-10-11T01:05:35.254</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

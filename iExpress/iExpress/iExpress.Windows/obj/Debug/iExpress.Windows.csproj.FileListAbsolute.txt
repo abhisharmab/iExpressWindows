@@ -111,3 +111,8 @@ C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Window
 C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\qualifiers.txt.intermediate
 C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\ProjectArchitectures.txt
+C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\bin\Debug\iExpressCustomSettings.xbf
+C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\iExpressCustomSettings.g.i.cs
+C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\iExpressCustomSettings.g.cs
+C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\iExpressCustomSettings.xaml
+C:\Users\abhishek\Source\Repos\iExpressWindows\iExpress\iExpress\iExpress.Windows\obj\Debug\iExpressCustomSettings.xbf
