@@ -1,7 +1,9 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\abhishek\source\repos\iexpress2\workspace\helloworld\helloworld\helloworld.windows\obj\debug\intermediatexaml\helloworld.windows.exe" HashGuid="ac052e7d-5a0f-6acc-670b-0aa1237bcfe6" />
-    <ReferenceAssembly PathName="c:\users\abhishek\source\repos\iexpresswindows\iexpress\packages\parse.1.3.0\lib\netcore45\parse.dll" HashGuid="fc340d69-26d7-b787-9749-e10724ae0b89" />
-    <ReferenceAssembly PathName="c:\users\abhishek\source\repos\iexpresswindows\iexpress\packages\parse.1.3.0\lib\netcore45\parse.winrt.dll" HashGuid="686a4480-5b84-291b-04f2-3ed7db81ad6f" />
+    <LocalAssembly PathName="c:\cmu\2014 fall\15821 mobile and pervasive computing\iexpress\workspace\iexpresswindows-master\iexpresswindows-master\iexpress\iexpress\iexpress.windows\obj\debug\intermediatexaml\iexpress.windows.exe" HashGuid="65da52be-4e7b-e65a-6264-5de8f588177f" />
+    <ReferenceAssembly PathName="c:\cmu\2014 fall\15821 mobile and pervasive computing\iexpress\workspace\iexpresswindows-master\iexpresswindows-master\iexpress\packages\newtonsoft.json.6.0.5\lib\netcore45\newtonsoft.json.dll" HashGuid="e70f704a-5345-3796-c57b-a99765c2073e" />
+    <ReferenceAssembly PathName="c:\cmu\2014 fall\15821 mobile and pervasive computing\iexpress\workspace\iexpresswindows-master\iexpresswindows-master\iexpress\packages\parse.1.3.0\lib\netcore45\parse.dll" HashGuid="fc340d69-26d7-b787-9749-e10724ae0b89" />
+    <ReferenceAssembly PathName="c:\cmu\2014 fall\15821 mobile and pervasive computing\iexpress\workspace\iexpresswindows-master\iexpresswindows-master\iexpress\packages\parse.1.3.0\lib\netcore45\parse.winrt.dll" HashGuid="686a4480-5b84-291b-04f2-3ed7db81ad6f" />
+    <ReferenceAssembly PathName="c:\cmu\2014 fall\15821 mobile and pervasive computing\iexpress\workspace\tet-csharp-samples-master\tetdlls\tetcsharpclient.dll" HashGuid="b3d5f1b5-f7e0-98ee-946e-c3b10f7ac816" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

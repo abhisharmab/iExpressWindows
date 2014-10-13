@@ -4,8 +4,8 @@
     <AppxShowAllApps>False</AppxShowAllApps>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <RemoteDebugMachine>iExpress:4018</RemoteDebugMachine>
-    <UseAuthentication>true</UseAuthentication>
+    <RemoteDebugMachine>MPC</RemoteDebugMachine>
+    <UseAuthentication>false</UseAuthentication>
     <RemoteDebugEnabled>false</RemoteDebugEnabled>
     <UseSimulator>false</UseSimulator>
   </PropertyGroup>

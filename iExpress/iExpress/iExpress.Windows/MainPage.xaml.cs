@@ -17,13 +17,14 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI;
 using Windows.UI.Xaml.Media.Imaging;
 using System.Diagnostics;
+using TETCSharpClient;
+using TETCSharpClient.Data;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 //Testing push
@@ -32,7 +33,7 @@ namespace iExpress
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, IGazeListener
     {
 
         private NavigationHelper navigationHelper;
@@ -44,7 +45,7 @@ namespace iExpress
         private int internal_counter = 36;
         private int running_counter;
         private String UserName;
-
+        private List<ButtonHandler> buttons = null;
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -66,10 +67,55 @@ namespace iExpress
 
         public MainPage()
         {
+
+
+
+
+
+            var connectedOk = true;
+            GazeManager.Instance.Activate(GazeManager.ApiVersion.VERSION_1_0, GazeManager.ClientMode.Push);
+            GazeManager.Instance.AddGazeListener(this);
+
+
+            if (!GazeManager.Instance.IsActivated)
+            {
+                Debug.WriteLine("IsActivated not ");
+                connectedOk = false;
+            }
+            /*else if (!GazeManager.Instance.IsCalibrated)
+            {
+                Dispatcher.BeginInvoke(new Action(() => MessageBox.Show("User is not calibrated")));
+                connectedOk = false;
+            }*/
+            if (!connectedOk)
+            {
+                return;
+            }
+
             this.InitializeComponent();
+
+
+            
+
+
+            buttons = new List<ButtonHandler>();
+            buttons.Add(new ButtonHandler(this.b1));
+            buttons.Add(new ButtonHandler(this.b2));
+            buttons.Add(new ButtonHandler(this.b3));
+
+
+
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+
+
+
+            
+
+
+
+            
 
         }
 
@@ -129,7 +175,11 @@ namespace iExpress
         private void mouseEntered(object sender, PointerRoutedEventArgs e)
         {
             
+
+
             Debug.WriteLine(sender.GetHashCode() + "Detected the entering of the button");
+
+
             entered = true;
             exited = false;
             //counter = 6;
@@ -155,7 +205,7 @@ namespace iExpress
             exited = true;
             entered = false;
 
-            (sender as Button).Background = null;
+            (sender as Windows.UI.Xaml.Controls.Button).Background = null;
         }
 
         private void mousedMoved(object sender, PointerRoutedEventArgs e)
@@ -168,7 +218,7 @@ namespace iExpress
                     running_counter = 0;
                     counter--;
                     String location = "ms-appx:///Assets/" + counter + ".png";
-                    (sender as Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(location)) };
+                    (sender as Windows.UI.Xaml.Controls.Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(location)) };
 
 
                 }
@@ -182,12 +232,12 @@ namespace iExpress
                         UserName = "Patient";
 
                     Debug.WriteLine("Trigger execution!!!!!!!!");
-                    (sender as Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
-                    Button but = (sender as Button);
+                    (sender as Windows.UI.Xaml.Controls.Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
+                    Windows.UI.Xaml.Controls.Button but = (sender as Windows.UI.Xaml.Controls.Button);
                     String message = UserName +":"+but.Content.ToString();
 
                     ParsePush push = new ParsePush();
-                    push.Channels = new List<String> { "global" };
+                    push.Channels = new List<String> { "testing" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
                     dic.Add("sound", ".");
                     dic.Add("alert", message);
@@ -210,8 +260,59 @@ namespace iExpress
 
         }
 
-        
 
+
+
+        //public void OnGazeUpdate(TETCSharpClient.Data.GazeData gazeData)
+        //{
+        //    var x = (int)Math.Round(gazeData.SmoothedCoordinates.X, 0);
+        //    var y = (int)Math.Round(gazeData.SmoothedCoordinates.Y, 0);
+        //    if (x == 0 & y == 0) return;
+        //    Debug.WriteLine("OnGazeUpdate" + x + "    " + y);
+
+        //}
+
+
+
+              public void OnGazeUpdate(GazeData gazeData)
+        {
+           
+
+            // start or stop tracking lost animation
+            if ((gazeData.State & GazeData.STATE_TRACKING_GAZE) == 0 &&
+                (gazeData.State & GazeData.STATE_TRACKING_PRESENCE) == 0) return;
+            var x = (int)Math.Round(gazeData.SmoothedCoordinates.X, 0);
+            var y = (int)Math.Round(gazeData.SmoothedCoordinates.Y, 0);
+            //var gX = Smooth ? gazeData.SmoothedCoordinates.X : gazeData.RawCoordinates.X;
+            //var gY = Smooth ? gazeData.SmoothedCoordinates.Y : gazeData.RawCoordinates.Y;
+            //var screenX = (int)Math.Round(x + gX, 0);
+            //var screenY = (int)Math.Round(y + gY, 0);
+
+
+           // Debug.WriteLine("OnGazeUpdate       " + x + "    " + y);
+
+            // return in case of 0,0 
+            if (x == 0 && y == 0) return;
+
+            determine_Button(x, y);
+
+           
+        }
+
+        private void determine_Button(int x, int y)
+        {
+            if (buttons != null)
+            {
+                for (int i = 0; i < buttons.Count(); i++)
+                {
+                    buttons.ElementAt(i).entered(x, y);
+                }
+            }
+         
+
+        }
+
+       
     }
 
 }
