@@ -122,12 +122,15 @@ namespace iExpress
 
                             if (hover_button == true)
                             {
-                                String message = userName + ":" + this.content;
+                                String message = this.content;
                                 ParsePush push = new ParsePush();
-                                push.Channels = new List<String> { "testing" };
+                                push.Channels = new List<String> { "global" };
                                 IDictionary<string, object> dic = new Dictionary<string, object>();
-                                dic.Add("sound", ".");
-                                dic.Add("alert", message);
+                                
+                                //Abhishek: Changes for Hard Notification
+                                if(name.Equals("b1")) dic.Add("sound", "emergency.caf");
+                                else dic.Add("sound", ".");
+                                dic.Add("alert", userName + ":" + message);
                                 push.Data = dic;
                                 push.SendAsync();
 

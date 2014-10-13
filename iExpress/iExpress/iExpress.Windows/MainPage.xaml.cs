@@ -234,13 +234,17 @@ namespace iExpress
                     Debug.WriteLine("Trigger execution!!!!!!!!");
                     (sender as Windows.UI.Xaml.Controls.Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
                     Windows.UI.Xaml.Controls.Button but = (sender as Windows.UI.Xaml.Controls.Button);
-                    String message = UserName +":"+but.Content.ToString();
+                    String message = but.Content.ToString();
 
                     ParsePush push = new ParsePush();
-                    push.Channels = new List<String> { "testing" };
+                    push.Channels = new List<String> { "global" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
-                    dic.Add("sound", ".");
-                    dic.Add("alert", message);
+                  
+                    //Abhishek: Changes for Hard Notification
+                    if (((Button)sender).Name.Equals("b1")) dic.Add("sound", "emergency.caf");
+                    else dic.Add("sound", ".");
+
+                    dic.Add("alert", UserName + ":" + message);
                     push.Data = dic;                      
                     push.SendAsync();
 
