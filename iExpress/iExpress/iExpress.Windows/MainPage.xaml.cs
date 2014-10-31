@@ -25,6 +25,10 @@ using Windows.UI.Xaml.Media.Imaging;
 using System.Diagnostics;
 using TETCSharpClient;
 using TETCSharpClient.Data;
+using Windows.UI.Popups;
+using Windows.UI.Core;
+using Windows.ApplicationModel.Core;
+using Windows.System.Threading;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 //Testing push
@@ -33,7 +37,7 @@ namespace iExpress
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Page, IGazeListener
+    public sealed partial class MainPage : Page, IGazeListener, IConnectionStateListener, ITrackerStateListener
     {
 
         private NavigationHelper navigationHelper;
@@ -46,6 +50,10 @@ namespace iExpress
         private int running_counter;
         private String UserName;
         private List<ButtonHandler> buttons = null;
+
+        // This will be used when the eye tribe is disconnected
+        private ThreadPoolTimer PeriodicTimer = null;
+        private int timer_duration = 10000;
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -72,38 +80,27 @@ namespace iExpress
 
 
 
-            var connectedOk = true;
             GazeManager.Instance.Activate(GazeManager.ApiVersion.VERSION_1_0, GazeManager.ClientMode.Push);
             GazeManager.Instance.AddGazeListener(this);
-
+            // Add listener if EyeTribe Server is closed
+            GazeManager.Instance.AddConnectionStateListener(this);
+            GazeManager.Instance.AddTrackerStateListener(this);
 
             if (!GazeManager.Instance.IsActivated)
             {
+
                 Debug.WriteLine("IsActivated not ");
-                connectedOk = false;
+                errorMessage("Eye Tribe Is Not Active.");
+
             }
-            /*else if (!GazeManager.Instance.IsCalibrated)
-            {
-                Dispatcher.BeginInvoke(new Action(() => MessageBox.Show("User is not calibrated")));
-                connectedOk = false;
-            }*/
-            if (!connectedOk)
-            {
-                return;
-            }
+
 
             this.InitializeComponent();
-
-
-            
-
 
             buttons = new List<ButtonHandler>();
             buttons.Add(new ButtonHandler(this.b1));
             buttons.Add(new ButtonHandler(this.b2));
             buttons.Add(new ButtonHandler(this.b3));
-
-
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -111,11 +108,11 @@ namespace iExpress
 
 
 
-            
 
 
 
-            
+
+
 
         }
 
@@ -174,7 +171,7 @@ namespace iExpress
 
         private void mouseEntered(object sender, PointerRoutedEventArgs e)
         {
-            
+
 
 
             Debug.WriteLine(sender.GetHashCode() + "Detected the entering of the button");
@@ -234,18 +231,14 @@ namespace iExpress
                     Debug.WriteLine("Trigger execution!!!!!!!!");
                     (sender as Windows.UI.Xaml.Controls.Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
                     Windows.UI.Xaml.Controls.Button but = (sender as Windows.UI.Xaml.Controls.Button);
-                    String message = but.Content.ToString();
+                    String message = UserName + ":" + but.Content.ToString();
 
                     ParsePush push = new ParsePush();
-                    push.Channels = new List<String> { "global" };
+                    push.Channels = new List<String> { "testing" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
-                  
-                    //Abhishek: Changes for Hard Notification
-                    if (((Button)sender).Name.Equals("b1")) dic.Add("sound", "emergency.caf");
-                    else dic.Add("sound", ".");
-
-                    dic.Add("alert", UserName + ":" + message);
-                    push.Data = dic;                      
+                    dic.Add("sound", ".");
+                    dic.Add("alert", message);
+                    push.Data = dic;
                     push.SendAsync();
 
 
@@ -267,20 +260,9 @@ namespace iExpress
 
 
 
-        //public void OnGazeUpdate(TETCSharpClient.Data.GazeData gazeData)
-        //{
-        //    var x = (int)Math.Round(gazeData.SmoothedCoordinates.X, 0);
-        //    var y = (int)Math.Round(gazeData.SmoothedCoordinates.Y, 0);
-        //    if (x == 0 & y == 0) return;
-        //    Debug.WriteLine("OnGazeUpdate" + x + "    " + y);
-
-        //}
-
-
-
-              public void OnGazeUpdate(GazeData gazeData)
+        public void OnGazeUpdate(GazeData gazeData)
         {
-           
+
 
             // start or stop tracking lost animation
             if ((gazeData.State & GazeData.STATE_TRACKING_GAZE) == 0 &&
@@ -293,14 +275,14 @@ namespace iExpress
             //var screenY = (int)Math.Round(y + gY, 0);
 
 
-           // Debug.WriteLine("OnGazeUpdate       " + x + "    " + y);
+            // Debug.WriteLine("OnGazeUpdate       " + x + "    " + y);
 
             // return in case of 0,0 
             if (x == 0 && y == 0) return;
 
             determine_Button(x, y);
 
-           
+
         }
 
         private void determine_Button(int x, int y)
@@ -312,11 +294,104 @@ namespace iExpress
                     buttons.ElementAt(i).entered(x, y);
                 }
             }
-         
+        }
+
+        private async void errorMessage(String value)
+        {
+            try
+            {
+                MessageDialog msgDialog = new MessageDialog(value, "Error");
+                await msgDialog.ShowAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.ToString());
+            }
+
 
         }
 
-       
+
+        // server connection check
+        public void OnConnectionStateChanged(bool isConnected)
+        {
+            if (!GazeManager.Instance.IsActivated)
+            {
+                // GazeManager.Instance.Deactivate();
+                Debug.WriteLine("Deactivate");
+
+                errorMessage("Gaze have been disconnected.");
+            }
+        }
+
+
+        public void OnScreenStatesChanged(int screenIndex, int screenResolutionWidth, int screenResolutionHeight, float screenPhysicalWidth, float screenPhysicalHeight)
+        {
+            // do not need this
+        }
+
+        public void OnTrackerStateChanged(GazeManager.TrackerState trackerState)
+        {
+            switch (trackerState)
+            {
+                case GazeManager.TrackerState.TRACKER_CONNECTED:
+                    Debug.WriteLine("TRACKER_CONNECTED");
+                    sysMessage("Eye Tracker has been connected.");
+                    if (PeriodicTimer != null)
+                    {
+                        PeriodicTimer.Cancel();
+
+                        PeriodicTimer = null;
+                    }
+                    break;
+                case GazeManager.TrackerState.TRACKER_CONNECTED_NOUSB3:
+                    Debug.WriteLine("TRACKER_CONNECTED_NOUSB3");
+                    break;
+                case GazeManager.TrackerState.TRACKER_CONNECTED_BADFW:
+                    Debug.WriteLine("TRACKER_CONNECTED_BADFW");
+                    break;
+                case GazeManager.TrackerState.TRACKER_NOT_CONNECTED:
+                    Debug.WriteLine("TRACKER_NOT_CONNECTED");
+                    sysMessage("Eye Tracker has been disconnected.");
+                    PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(TimerElapsedHandler,
+                                        TimeSpan.FromMilliseconds(timer_duration));
+                    break;
+                case GazeManager.TrackerState.TRACKER_CONNECTED_NOSTREAM:
+                    Debug.WriteLine("TRACKER_CONNECTED_NOSTREAM");
+                    break;
+            }
+        }
+
+        private void TimerElapsedHandler(ThreadPoolTimer timer)
+        {
+            Debug.WriteLine("TimerElapsedHandler");
+            sysMessage("Eye Tracker has been disconnected.");
+        }
+
+        private async void sysMessage(String msg)
+        {
+
+            if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("UserName"))
+                UserName = (String)ApplicationData.Current.RoamingSettings.Values["UserName"];
+            else
+                UserName = "Patient";
+
+            String message = msg;
+            ParsePush push = new ParsePush();
+            push.Channels = new List<String> { "testing" };
+            IDictionary<string, object> dic = new Dictionary<string, object>();
+            dic.Add("sound", ".");
+            dic.Add("alert", message);
+            push.Data = dic;
+            await push.SendAsync();
+
+
+            ParseObject internal_tweets = new ParseObject("TweetsInternal");
+            internal_tweets["content"] = message;
+            internal_tweets["sender"] = UserName;
+            await internal_tweets.SaveAsync();
+        }
+
     }
 
 }
