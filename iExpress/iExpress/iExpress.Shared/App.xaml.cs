@@ -149,7 +149,7 @@ namespace iExpress
         {
             try
             {
-                await ParsePush.SubscribeAsync("testing");
+                await ParsePush.SubscribeAsync("global");
             }
             catch (Exception x)
             {
