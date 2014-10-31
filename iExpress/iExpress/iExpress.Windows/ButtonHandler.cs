@@ -57,10 +57,19 @@ namespace iExpress
 
         public async void entered(int x, int y)
         {
+            x = x  - 175;
+           // x = x - 75;
+            y = y  - 300;
+
             if (init_x <= x && x <= out_x && init_y <= y && y <= out_y)
             {
-                Debug.WriteLine("WOWOWOW ::::: we are in the regoin " + this.name);
-                Debug.WriteLine("x==== " + x + "     y ====== " + y);
+                //Debug.WriteLine("Init_X " + init_x + "  Init_Y " + init_y);
+                //Debug.WriteLine("OUT_X " + out_x + "  OUT_Y " + out_y);
+                //Debug.WriteLine("X  " + x + "     Y= " + y);
+
+                //Debug.WriteLine("WOWOWOW ::::: we are in the regoin " + this.name);
+                
+                
                 if (entered_button == false && exited_button == true)
                 {
 
