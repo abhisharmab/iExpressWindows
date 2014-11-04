@@ -36,9 +36,7 @@ namespace iExpress
         public ButtonHandler(Button button)
         {
             this.button = button;
-
             Button but = button;
-
 
             var trans = but.TransformToVisual(null);
             var point = trans.TransformPoint(new Windows.Foundation.Point());
@@ -52,13 +50,15 @@ namespace iExpress
             name = button.Name.ToString();
             content = button.Content.ToString();
 
-
         }
 
         public async void entered(int x, int y)
         {
+            //With some analysis we came up with this padding 
+
+            //x = x - 180;
+            //y = y - 350;
             x = x  - 175;
-           // x = x - 75;
             y = y  - 300;
 
             if (init_x <= x && x <= out_x && init_y <= y && y <= out_y)
@@ -66,13 +66,10 @@ namespace iExpress
                 //Debug.WriteLine("Init_X " + init_x + "  Init_Y " + init_y);
                 //Debug.WriteLine("OUT_X " + out_x + "  OUT_Y " + out_y);
                 //Debug.WriteLine("X  " + x + "     Y= " + y);
-
                 //Debug.WriteLine("WOWOWOW ::::: we are in the regoin " + this.name);
-                
                 
                 if (entered_button == false && exited_button == true)
                 {
-
                     //counter = 6;
                     //Abhi - Testing if CountDown Testing Works 
                     if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("CountDown"))
@@ -89,10 +86,8 @@ namespace iExpress
                     entered_button = true;
                     hover_button = true;
                     exited_button = false;
-
-
-
                 }
+
                 else if (entered_button == true && hover_button == true)
                 {
 
@@ -107,11 +102,7 @@ namespace iExpress
                         {
                             this.button.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri(location)) };
                         });
-
-
-
                     }
-
 
                     entered_button = true;
                     hover_button = true;
@@ -151,18 +142,10 @@ namespace iExpress
                             }
                         });
 
-                      
-                    
                         hover_button = false;
-
-
                     }
 
-                   
-
                 }
-
-
 
             }
             else
