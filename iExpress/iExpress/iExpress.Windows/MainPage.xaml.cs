@@ -75,11 +75,6 @@ namespace iExpress
 
         public MainPage()
         {
-
-
-
-
-
             GazeManager.Instance.Activate(GazeManager.ApiVersion.VERSION_1_0, GazeManager.ClientMode.Push);
             GazeManager.Instance.AddGazeListener(this);
             // Add listener if EyeTribe Server is closed
@@ -94,26 +89,19 @@ namespace iExpress
 
             }
 
-
             this.InitializeComponent();
 
             buttons = new List<ButtonHandler>();
             buttons.Add(new ButtonHandler(this.b1));
             buttons.Add(new ButtonHandler(this.b2));
             buttons.Add(new ButtonHandler(this.b3));
+            buttons.Add(new ButtonHandler(this.b4));
+            buttons.Add(new ButtonHandler(this.b5));
+            buttons.Add(new ButtonHandler(this.b6));
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
-
-
-
-
-
-
-
-
-
         }
 
         /// <summary>
@@ -172,10 +160,7 @@ namespace iExpress
         private void mouseEntered(object sender, PointerRoutedEventArgs e)
         {
 
-
-
             Debug.WriteLine(sender.GetHashCode() + "Detected the entering of the button");
-
 
             entered = true;
             exited = false;
@@ -234,7 +219,7 @@ namespace iExpress
                     String message = UserName + ":" + but.Content.ToString();
 
                     ParsePush push = new ParsePush();
-                    push.Channels = new List<String> { "testing" };
+                    push.Channels = new List<String> { "global" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
                     dic.Add("sound", ".");
                     dic.Add("alert", message);
@@ -246,8 +231,6 @@ namespace iExpress
                     internal_tweets["content"] = message;
                     internal_tweets["sender"] = UserName;
                     internal_tweets.SaveAsync();
-
-
 
                     entered = false;
                     exited = true;
@@ -262,8 +245,6 @@ namespace iExpress
 
         public void OnGazeUpdate(GazeData gazeData)
         {
-
-
             // start or stop tracking lost animation
             if ((gazeData.State & GazeData.STATE_TRACKING_GAZE) == 0 &&
                 (gazeData.State & GazeData.STATE_TRACKING_PRESENCE) == 0) return;
@@ -273,15 +254,12 @@ namespace iExpress
             //var gY = Smooth ? gazeData.SmoothedCoordinates.Y : gazeData.RawCoordinates.Y;
             //var screenX = (int)Math.Round(x + gX, 0);
             //var screenY = (int)Math.Round(y + gY, 0);
-
-
             // Debug.WriteLine("OnGazeUpdate       " + x + "    " + y);
 
             // return in case of 0,0 
             if (x == 0 && y == 0) return;
 
             determine_Button(x, y);
-
 
         }
 
@@ -307,8 +285,6 @@ namespace iExpress
             {
                 Debug.WriteLine(e.ToString());
             }
-
-
         }
 
 
@@ -317,7 +293,7 @@ namespace iExpress
         {
             if (!GazeManager.Instance.IsActivated)
             {
-                // GazeManager.Instance.Deactivate();
+                //GazeManager.Instance.Deactivate();
                 Debug.WriteLine("Deactivate");
 
                 errorMessage("Gaze have been disconnected.");
@@ -378,7 +354,7 @@ namespace iExpress
 
             String message = msg;
             ParsePush push = new ParsePush();
-            push.Channels = new List<String> { "testing" };
+            push.Channels = new List<String> { "global" };
             IDictionary<string, object> dic = new Dictionary<string, object>();
             dic.Add("sound", ".");
             dic.Add("alert", message);
@@ -391,6 +367,7 @@ namespace iExpress
             internal_tweets["sender"] = UserName;
             await internal_tweets.SaveAsync();
         }
+
 
     }
 
