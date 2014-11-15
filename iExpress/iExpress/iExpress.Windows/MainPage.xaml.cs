@@ -29,6 +29,8 @@ using Windows.UI.Popups;
 using Windows.UI.Core;
 using Windows.ApplicationModel.Core;
 using Windows.System.Threading;
+using Windows.Networking.PushNotifications;
+
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 //Testing push
@@ -90,7 +92,7 @@ namespace iExpress
             {
 
                 Debug.WriteLine("IsActivated not ");
-                errorMessage("Eye Tribe Is Not Active.");
+           //     errorMessage("Eye Tribe Is Not Active.");
 
             }
 
@@ -109,15 +111,13 @@ namespace iExpress
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
 
+            ParsePush.ToastNotificationReceived += updateNotification;
 
-
-
-
-
-
-
-
+            // initial setup
+            updateNotification(null, null);
         }
+
+
 
         /// <summary>
         /// Populates the page with content passed during navigation. Any saved state is also
@@ -234,13 +234,14 @@ namespace iExpress
                     Debug.WriteLine("Trigger execution!!!!!!!!");
                     (sender as Windows.UI.Xaml.Controls.Button).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
                     Windows.UI.Xaml.Controls.Button but = (sender as Windows.UI.Xaml.Controls.Button);
-                    String message = UserName + ":" + but.Content.ToString();
+                    String message = but.Content.ToString();
 
                     ParsePush push = new ParsePush();
                     push.Channels = new List<String> { "global" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
                     dic.Add("sound", ".");
                     dic.Add("alert", message);
+                   // dic.Add("time", UserName);
                     push.Data = dic;
                     push.SendAsync();
 
@@ -386,7 +387,53 @@ namespace iExpress
             await internal_tweets.SaveAsync();
         }
 
+        private async void updateNotification(object sender, PushNotificationReceivedEventArgs e)
+        {
+            Debug.WriteLine("Debug :: This is from the ToastNotificationReceived    ");
 
+            var query = from comment in ParseObject.GetQuery("TweetsInternal")
+                                    .Limit(2)
+                        orderby comment.CreatedAt descending
+                        select comment;
+
+            IEnumerable<ParseObject> comments = await query.FindAsync();
+
+
+            bool top = true;
+            string forNotification1 ="";
+            string forNotification2 ="";
+
+            foreach (ParseObject p in comments)
+            {
+                if (top)
+                {
+                    string format = "hh:mm tt";
+                    var dt = p.CreatedAt;
+                    forNotification1 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + " " + p.Get<string>("content");
+                    top = !top;
+                }
+                else
+                {
+                    string format = "hh:mm tt";
+                    var dt = p.CreatedAt;
+                    forNotification2 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + " " + p.Get<string>("content");
+                }
+            }
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                this.notification2.Text = forNotification2;
+                this.notification1.Text = forNotification1;
+            });
+                    
+               
+            
+        }
+
+
+    
     }
+
+
 
 }
