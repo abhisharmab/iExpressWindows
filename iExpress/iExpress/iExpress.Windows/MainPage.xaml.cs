@@ -114,7 +114,7 @@ namespace iExpress
             ParsePush.ToastNotificationReceived += updateNotification;
 
             // initial setup
-            updateNotification(null, null);
+            updateNotification(null, null);                 
         }
 
 
