@@ -54,8 +54,12 @@
             <Button x:Name="b4" Content="YES :)"  Width="200" Height="200"  PointerEntered="mouseEntered" PointerExited="mouseExited" PointerMoved="mousedMoved" Canvas.Left="61" Canvas.Top="465" FontSize="18"/>
             <Button x:Name="b5" Content="NO :(" Width="200" Height="200"  PointerEntered="mouseEntered" PointerExited="mouseExited" PointerMoved="mousedMoved" Canvas.Left="290" Canvas.Top="465" FontSize="18"/>
             <Button x:Name="b6" Content="LET'S TALK"  Width="200" Height="200"  PointerEntered="mouseEntered" PointerExited="mouseExited" PointerMoved="mousedMoved" Canvas.Left="61" Canvas.Top="252" FontSize="18"/>
+
+            <StackPanel Orientation="Vertical" Canvas.Left="64" Canvas.Top="697" Height="100" Width="423">
+                <TextBox x:Name="notification1" Text="Message 1" IsHitTestVisible="false" Width="423" HorizontalAlignment="Left" Height="50" FontSize="20"/>
+                <TextBox x:Name="notification2" Text="Message 2" IsHitTestVisible="false" Width="423" HorizontalAlignment="Left" Height="50" FontSize="20"/>
+            </StackPanel>
         </Canvas>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="74,692.074,0,-210.074" Grid.Row="2" Stroke="Black" VerticalAlignment="Top" Width="422" />
 
     </Grid>
 </Page>
