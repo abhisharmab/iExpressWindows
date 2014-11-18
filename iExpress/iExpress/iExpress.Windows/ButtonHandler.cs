@@ -104,6 +104,7 @@ namespace iExpress
                         });
                     }
 
+
                     entered_button = true;
                     hover_button = true;
                     exited_button = false;
@@ -114,6 +115,16 @@ namespace iExpress
                         () =>
                         {
                             this.button.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Sent.png")) };
+
+                            if(this.button.Name == "b4")
+                            {
+                                this.button.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Like.png")) };
+                            }
+
+                            if (this.button.Name == "b5")
+                            {
+                                this.button.Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/Dislike.png")) };
+                            }
 
                             if (ApplicationData.Current.RoamingSettings.Values.ContainsKey("UserName"))
                                 userName = (String)ApplicationData.Current.RoamingSettings.Values["UserName"];
