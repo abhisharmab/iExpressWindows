@@ -409,14 +409,14 @@ namespace iExpress
                 {
                     string format = "hh:mm tt";
                     var dt = p.CreatedAt;
-                    forNotification1 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + " : " + p.Get<string>("content");
+                    forNotification1 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + ": " + p.Get<string>("content");
                     top = !top;
                 }
                 else
                 {
                     string format = "hh:mm tt";
                     var dt = p.CreatedAt;
-                    forNotification2 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + " : " + p.Get<string>("content");
+                    forNotification2 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + ": " + p.Get<string>("content");
                 }
             }
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
