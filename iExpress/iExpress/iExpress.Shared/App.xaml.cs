@@ -137,10 +137,7 @@ namespace iExpress
             // Ensure the current window is active
             Window.Current.Activate();
 
-            ParsePush.ToastNotificationReceived += (sender, args) =>
-            {
-                 Debug.WriteLine("Debug :: This is from the ToastNotificationReceived"); 
-            };
+            
 
            
         }
