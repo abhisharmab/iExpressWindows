@@ -240,7 +240,7 @@ namespace iExpress
                     push.Channels = new List<String> { "global" };
                     IDictionary<string, object> dic = new Dictionary<string, object>();
                     dic.Add("sound", ".");
-                    dic.Add("alert", message);
+                    dic.Add("alert", UserName + ": " + message);
                    // dic.Add("time", UserName);
                     push.Data = dic;
                     push.SendAsync();
@@ -416,7 +416,7 @@ namespace iExpress
                 {
                     string format = "hh:mm tt";
                     var dt = p.CreatedAt;
-                    forNotification2 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + " " + p.Get<string>("content");
+                    forNotification2 = dt.Value.ToLocalTime().ToString(format) + " " + p.Get<string>("sender") + " : " + p.Get<string>("content");
                 }
             }
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
