@@ -141,7 +141,7 @@ namespace iExpress
                                 //Abhishek: Changes for Hard Notification
                                 if(name.Equals("b1")) dic.Add("sound", "emergency.caf");
                                 else dic.Add("sound", ".");
-                                dic.Add("alert", userName + ":" + message);
+                                dic.Add("alert", userName + ": " + message);
                                 push.Data = dic;
                                 push.SendAsync();
 
