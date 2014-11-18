@@ -131,6 +131,8 @@
     <Content Include="Assets\3.png" />
     <Content Include="Assets\4.png" />
     <Content Include="Assets\5.png" />
+    <Content Include="Assets\Dislike.png" />
+    <Content Include="Assets\Like.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Sent.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
