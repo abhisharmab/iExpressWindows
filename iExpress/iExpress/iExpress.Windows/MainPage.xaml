@@ -55,9 +55,9 @@
             <Button x:Name="b5" Content="No :(" Width="200" Height="200"  PointerEntered="mouseEntered" PointerExited="mouseExited" PointerMoved="mousedMoved" Canvas.Left="290" Canvas.Top="465" FontSize="18"/>
             <Button x:Name="b6" Content="Let's Talk"  Width="200" Height="200"  PointerEntered="mouseEntered" PointerExited="mouseExited" PointerMoved="mousedMoved" Canvas.Left="290" Canvas.Top="252" FontSize="18"/>
 
-            <StackPanel Orientation="Vertical" Canvas.Left="64" Canvas.Top="697" Height="100" Width="423">
-                <TextBox x:Name="notification1" Text="Message 1" IsHitTestVisible="false" Width="423" HorizontalAlignment="Left" Height="50" FontSize="12" BorderBrush="Aquamarine" TextWrapping="Wrap"/>
-                <TextBox x:Name="notification2" Text="Message 2" IsHitTestVisible="false" Width="423" HorizontalAlignment="Left" Height="50" FontSize="12" BorderBrush="Aquamarine" TextWrapping="Wrap"/>
+            <StackPanel Orientation="Vertical" Canvas.Left="64" Canvas.Top="697" Height="200" Width="423">
+                <TextBox x:Name="notification1" Text="Message 1" IsHitTestVisible="false" Width="423" HorizontalAlignment="Left" Height="100" FontSize="18" BorderBrush="#FFBC290E" TextWrapping="Wrap" FontFamily="Segoe UI Emoji" BorderThickness="5"/>
+                <TextBox x:Name="notification2" Text="Message 2" IsHitTestVisible="false" Width="423" HorizontalAlignment="Left" Height="100" FontSize="18" BorderBrush="#FFF3A84C" TextWrapping="Wrap" FontFamily="Segoe UI Emoji" BorderThickness="5"/>
             </StackPanel>
         </Canvas>
 
